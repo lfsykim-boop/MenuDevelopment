@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신메뉴 개발 스킬</title>
+<meta name="description" content="메뉴개발팀의 신메뉴 개발을 돕는 Claude 보조 스킬">
+<style>
+:root{--bg:#f6f8f6;--card:#ffffff;--ink:#1a2a22;--sub:#5a6b62;--line:#dde6e0;--brand:#1f5133;--accent:#2b6b47;}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1512;--card:#17201b;--ink:#e8efea;--sub:#9fb3a8;--line:#2a362f;--brand:#7fcfa3;--accent:#9bd9b7;}}
+:root[data-theme="dark"]{--bg:#0f1512;--card:#17201b;--ink:#e8efea;--sub:#9fb3a8;--line:#2a362f;--brand:#7fcfa3;--accent:#9bd9b7;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"맑은 고딕","Malgun Gothic",-apple-system,"Segoe UI",sans-serif;line-height:1.6;}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 64px;}
+header{padding:56px 16px 40px;text-align:center;}
+h1{font-size:30px;margin:0 0 10px;color:var(--brand);}
+.tag{display:inline-block;font-size:13px;color:var(--sub);border:1px solid var(--line);border-radius:999px;padding:3px 12px;margin-bottom:14px;}
+.lead{color:var(--sub);font-size:16px;max-width:620px;margin:0 auto;}
+h2{font-size:20px;color:var(--brand);border-bottom:2px solid var(--line);padding-bottom:6px;margin:40px 0 16px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;}
+.card h3{margin:0 0 6px;font-size:16px;color:var(--accent);}
+.card p{margin:0;color:var(--sub);font-size:14px;}
+ul{padding-left:20px;}
+li{margin:4px 0;}
+a.btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;padding:10px 16px;border-radius:8px;font-size:14px;margin:6px 8px 0 0;}
+a.btn.ghost{background:transparent;color:var(--brand);border:1px solid var(--brand);}
+.note{font-size:13px;color:var(--sub);background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:12px 14px;margin-top:14px;}
+code{background:var(--card);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:13px;}
+footer{text-align:center;color:var(--sub);font-size:13px;margin-top:48px;}
+</style>
+</head>
+<body>
+<header>
+<div class="tag">메뉴개발팀 · Claude 보조 스킬</div>
+<h1>신메뉴 개발 스킬</h1>
+<p class="lead">아이디어 접수부터 출시 준비까지 7단계로 진행하고 5인 페르소나 토론으로 검토한다 현재 외식 트렌드와 제철 식자재를 반영해 판매 목표와 가맹점 수익으로 연결한다</p>
+</header>
+
+<div class="wrap">
+
+<h2>무엇을 하는가</h2>
+<div class="grid">
+<div class="card"><h3>7단계 개발</h3><p>목표·콘셉트 → 시장·경쟁 → 레시피 → 원가 → 주방 운영 → 검증 → 출시 준비</p></div>
+<div class="card"><h3>5인 토론</h3><p>R&D 셰프 · 원가·구매 · 슈퍼바이저 · 브랜드 기획 · 성과 비평가가 분야별로 채점</p></div>
+<div class="card"><h3>9.7 합격선 + 루브릭</h3><p>점수 구간 앵커로 자의적 채점을 막고 근거 수준으로 점수가 정해진다</p></div>
+<div class="card"><h3>가드레일</h3><p>데이터 날조 금지 · 데이터 게이트 · 제철 단종·대체 계획 강제</p></div>
+<div class="card"><h3>트렌드·제철 반영</h3><p>실행 시 트렌드를 새로 검색하고 출시 시기의 제철 식자재를 반영</p></div>
+<div class="card"><h3>사람이 주체</h3><p>스킬은 보조이며 최종 판단은 메뉴개발팀이 한다</p></div>
+</div>
+
+<h2>데모 결과물</h2>
+<p class="lead" style="text-align:left;margin:0 0 10px;">미역국 브랜드 A 브랜드로 스킬을 실제 가동한 샘플이다 경쟁 분석과 트렌드·제철을 반영해 신메뉴를 추천하고 자사 데이터가 없는 항목은 자료 필요로 표기한다</p>
+<a class="btn" href="web/sample-brand-menu-recommendation.html">미역국 브랜드 A 신메뉴 추천 보기</a>
+<a class="btn ghost" href="web/sample-brand-menu-recommendation.pdf">PDF</a>
+<a class="btn ghost" href="web/template-menu-plan.html">기획안 빈 서식</a>
+
+<h2>구성</h2>
+<ul>
+<li><code>.claude/skills/new-menu-development/</code> 스킬 본체 (SKILL.md · 레퍼런스 · 템플릿)</li>
+<li><code>docs/</code> 설계 근거와 데모 기록</li>
+<li><code>web/</code> 공개 열람용 결과물</li>
+<li><code>tests/</code> 발동·게이트·가드레일 검증 시나리오</li>
+</ul>
+
+<div class="note">자사 데이터(가격 수용도·POS 비중)가 채워지기 전에는 스킬이 시장·경쟁 단계에서 멈추고 자료를 요청한다 이는 근거 없는 메뉴를 막는 의도된 동작이다</div>
+
+<footer>MIT License · 2026 · 메뉴개발팀</footer>
+</div>
+</body>
+</html>
